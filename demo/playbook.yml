@@ -2,7 +2,7 @@
 - hosts: localhost
   vars:
     ansible_connection: local
-    ansible_python_interpreter: /opt/homebrew/bin/python3
+#    ansible_python_interpreter: /opt/homebrew/bin/python3
     array_ip: 'ip_address_of_the_array'
     user: 'your_username'
     password: 'your_password'
