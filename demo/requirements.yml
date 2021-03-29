@@ -1,0 +1,6 @@
+---
+collections:
+  # Install a collection from Ansible Galaxy.
+  - name: dellemc.powerstore
+    version: 1.1.2
+    source: https://galaxy.ansible.com
