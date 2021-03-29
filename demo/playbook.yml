@@ -1,0 +1,39 @@
+---
+- hosts: localhost
+  vars:
+    ansible_connection: local
+    ansible_python_interpreter: /opt/homebrew/bin/python3
+    array_ip: 'ip_address_of_the_array'
+    user: 'your_username'
+    password: 'your_password'
+    verifycert: False
+    threshold_size: enter_cap(in Bytes)
+  collections:
+    - dellemc.powerstore
+
+  tasks:
+
+  - name: Get the details of the array
+    dellemc_powerstore_gatherfacts:
+      array_ip: "{{array_ip}}"
+      user: "{{user}}"
+      password: "{{password}}"
+      verifycert: "{{verifycert}}"
+      gather_subset:
+        - vol
+    register: subset_result
+
+
+  - name: Print out the details of the array
+    debug:
+      var: subset_result
+
+  - name: Get list of volumes
+    dellemc_powerstore_gatherfacts:
+      array_ip: "{{array_ip}}"
+      verifycert: "{{verifycert}}"
+      user: "{{user}}"
+      password: "{{password}}"
+      gather_subset:
+        - vol
+
