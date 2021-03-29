@@ -2,12 +2,10 @@
 - hosts: localhost
   vars:
     ansible_connection: local
-#    ansible_python_interpreter: /opt/homebrew/bin/python3
-    array_ip: 'ip_address_of_the_array'
-    user: 'your_username'
-    password: 'your_password'
+    array_ip: 192.168.1.30
+    user: admin
+    password: P@ssw0rd!
     verifycert: False
-    threshold_size: enter_cap(in Bytes)
   collections:
     - dellemc.powerstore
 
@@ -36,4 +34,8 @@
       password: "{{password}}"
       gather_subset:
         - vol
+    register: volume_result
 
+  - name: Print out the details of the volumes
+    debug:
+      var: volume_result
