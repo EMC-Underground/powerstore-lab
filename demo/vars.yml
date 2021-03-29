@@ -1,0 +1,21 @@
+---
+# PowerStore array credentials
+array_ip:
+verifycert: false
+user: admin
+password:
+# Volume Group variables
+vg_name:
+  - test01
+
+# Host variables
+host_name:
+os_type:
+initiators:
+  - nic1
+  - nic2
+
+# Host Group variables
+hostgroup_name:
+  - hostgroup_00
+  - hostgroup_01

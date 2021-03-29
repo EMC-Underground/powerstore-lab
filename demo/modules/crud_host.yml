@@ -1,0 +1,34 @@
+---
+- name: Get host details by name
+  dellemc_powerstore_host:
+    array_ip: "{{array_ip}}"
+    verifycert: "{{verifycert}}"
+    user: "{{user}}"
+    password: "{{password}}"
+    host_name: "{{host_name}}"
+    state: 'present'
+
+
+- name: Create host
+  dellemc_powerstore_host:
+    array_ip: "{{array_ip}}"
+    verifycert: "{{verifycert}}"
+    user: "{{user}}"
+    password: "{{password}}"
+    host_name: "{{host_name}}"
+    os_type: 'Windows' initiators:
+      -21:00:00:24:ff:31:e9:fc
+    state: 'present'
+    initiator_state: 'present-in-host'
+
+- name: Adding initiators to host
+  dellemc_powerstore_host:
+    array_ip: "{{array_ip}}"
+    verifycert: "{{verifycert}}"
+    user: "{{user}}"
+    password: "{{password}}"
+    host_name: "{{host_name}}"
+    initiators:
+      - 21:00:00:24:ff:31:e9:ee
+    initiator_state: 'present-in-host'
+    state: 'present'
