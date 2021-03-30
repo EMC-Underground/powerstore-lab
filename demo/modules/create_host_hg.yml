@@ -18,6 +18,7 @@
     user: "{{user}}"
     password: "{{password}}"
     hostgroup_name: "{{ group_names[0] }}"
-    hosts: "{{ inventory_hostname }}"
+    hosts: "{{ groups[group_names[0]] }}"
     state: 'present'
     host_state: 'present-in-group'
+  run_once: True
