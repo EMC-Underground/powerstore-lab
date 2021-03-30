@@ -1,10 +1,10 @@
 ---
 - hosts: all
+  gather_facts: False
   collections:
     - dellemc.powerstore
 
   tasks:
-
   - name: Include the create host_vg_hg task
     include_tasks: ./modules/create_host_hg.yml
 
@@ -17,7 +17,6 @@
       gather_subset:
         - vol
     register: subset_result
-
 
   - name: Print out the details of the array
     debug:
