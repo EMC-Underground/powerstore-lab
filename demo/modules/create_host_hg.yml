@@ -17,7 +17,7 @@
     verifycert: "{{verifycert}}"
     user: "{{user}}"
     password: "{{password}}"
-    hostgroup_name: "{{hostgroup_name}}"
+    hostgroup_name: "{{ group_names[0] }}"
     hosts: "{{ inventory_hostname }}"
     state: 'present'
     host_state: 'present-in-group'

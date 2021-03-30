@@ -10,8 +10,6 @@ wincluster01:
       initiator:
         - 22:00:00:24:ff:31:e9:fc
         - 22:00:00:24:ff:31:e9:fd
-  volume_group: volume_group_0001
-  hosts_group: host_group_0001
   volumes:
     - volume_0001
     - volume_0002
