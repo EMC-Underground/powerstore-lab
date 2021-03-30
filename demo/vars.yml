@@ -17,5 +17,4 @@ initiators:
 
 # Host Group variables
 hostgroup_name:
-  - hostgroup_00
   - hostgroup_01

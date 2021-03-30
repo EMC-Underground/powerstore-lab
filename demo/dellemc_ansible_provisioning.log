@@ -22,3 +22,7 @@
 2021-03-29 20:23:15,321 dellemc_powerstore_gatherfacts.py INFO : Got Py4ps instance for provisioning on PowerStore <PyPowerStore.powerstore_conn.PowerStoreConn object at 0x7fa9956c53d0>
 2021-03-29 20:23:15,385 dellemc_powerstore_gatherfacts.py INFO : Getting vol list
 2021-03-29 20:23:15,439 dellemc_powerstore_gatherfacts.py INFO : Successfully listed 0 Volumes from powerstore array name: POD3-Cluster1 , global id : 0
+2021-03-29 22:52:02,976 dellemc_powerstore_gatherfacts.py INFO : HAS_PY4PS = True, IMPORT_ERROR = 
+2021-03-29 22:52:02,978 dellemc_powerstore_gatherfacts.py INFO : IS_SUPPORTED_PY4PS_VERSION = True , VERSION_ERROR = 
+2021-03-29 22:52:02,978 dellemc_powerstore_gatherfacts.py INFO : Got Py4ps instance for provisioning on PowerStore <PyPowerStore.powerstore_conn.PowerStoreConn object at 0xffffb6eb43d0>
+2021-03-29 22:52:02,987 dellemc_powerstore_gatherfacts.py ERROR : Failed to get the clusters with error HTTPSConnectionPool(host='192.168.1.30', port=443): Max retries exceeded with url: /api/rest/cluster?select=id%2Cname (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1125)')))
