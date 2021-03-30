@@ -1,5 +1,5 @@
 ---
-- hosts: localhost
+- hosts: all
   vars:
     ansible_connection: local
     array_ip: 192.168.1.30
