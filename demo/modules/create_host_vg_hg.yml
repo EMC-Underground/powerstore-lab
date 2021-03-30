@@ -6,8 +6,8 @@
     user: "{{user}}"
     password: "{{password}}"
     host_name: "{{host_name}}"
-    os_type: 'Windows' initiators:
-      -21:00:00:24:ff:31:e9:fc
+    os_type: 'Windows'
+    initiators: "{{ initiator }}"
     state: 'present'
     initiator_state: 'present-in-host'
 
@@ -18,9 +18,7 @@
     user: "{{user}}"
     password: "{{password}}"
     hostgroup_name: "{{hostgroup_name}}"
-    hosts:
-      - host1
-      - host2
+    hosts: inventory_hostname
     state: 'present'
     host_state: 'present-in-group'
 

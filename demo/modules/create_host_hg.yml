@@ -1,0 +1,23 @@
+---
+- name: Create host
+  dellemc_powerstore_host:
+    array_ip: "{{array_ip}}"
+    verifycert: "{{verifycert}}"
+    user: "{{user}}"
+    password: "{{password}}"
+    host_name: "{{host_name}}"
+    os_type: 'Windows'
+    initiators: "{{ initiator }}"
+    state: 'present'
+    initiator_state: 'present-in-host'
+
+- name: Create host group with hosts using host name
+  dellemc_powerstore_hostgroup:
+    array_ip: "{{array_ip}}"
+    verifycert: "{{verifycert}}"
+    user: "{{user}}"
+    password: "{{password}}"
+    hostgroup_name: "{{hostgroup_name}}"
+    hosts: inventory_hostname
+    state: 'present'
+    host_state: 'present-in-group'

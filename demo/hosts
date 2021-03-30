@@ -1,0 +1,24 @@
+---
+
+wincluster01:
+  hosts:
+    win2:
+      initiator:
+        - 21:00:00:24:ff:31:e9:fc
+        - 21:00:00:24:ff:31:e9:fd
+    win3:
+      initiator:
+        - 22:00:00:24:ff:31:e9:fc
+        - 22:00:00:24:ff:31:e9:fd
+  volume_group: volume_group_0001
+  hosts_group: host_group_0001
+  volumes:
+    - volume_0001
+    - volume_0002
+  vars:
+    powerstore_ip: 192.168.1.1
+    powerstore_username: admin
+    powerstore_password: mypasswordhere
+    powerstore_verifycert: false
+
+

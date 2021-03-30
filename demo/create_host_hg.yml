@@ -12,7 +12,7 @@
   tasks:
 
   - name: Include the create host_vg_hg task
-    include_tasks: ./modules/create_host_vg_hg.yml
+    include_tasks: ./modules/create_host_hg.yml
 
   - name: Get the details of the array
     dellemc_powerstore_gatherfacts:
