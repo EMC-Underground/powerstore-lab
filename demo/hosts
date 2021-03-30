@@ -20,5 +20,6 @@ wincluster01:
     powerstore_username: admin
     powerstore_password: mypasswordhere
     powerstore_verifycert: false
+    ansible_connection: local
 
 
