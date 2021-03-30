@@ -1,11 +1,5 @@
 ---
 - hosts: all
-  vars:
-    ansible_connection: local
-    array_ip: 192.168.1.30
-    user: admin
-    password: P@ssw0rd!
-    verifycert: False
   collections:
     - dellemc.powerstore
 

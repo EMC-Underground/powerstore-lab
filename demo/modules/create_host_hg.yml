@@ -10,6 +10,7 @@
     initiators: "{{ initiator }}"
     state: 'present'
     initiator_state: 'present-in-host'
+  when: "'hosts' in group_names"
 
 - name: Create host group with hosts using host name
   dellemc_powerstore_hostgroup:
@@ -17,8 +18,46 @@
     verifycert: "{{verifycert}}"
     user: "{{user}}"
     password: "{{password}}"
-    hostgroup_name: "{{ group_names[0] }}"
+    hostgroup_name: "{{ cluster_name }}"
     hosts: "{{ groups[group_names[0]] }}"
     state: 'present'
     host_state: 'present-in-group'
   run_once: True
+  when: "'hosts' in group_names"
+
+- name: Create volume group without protection policy
+  dellemc_powerstore_volumegroup:
+    array_ip: "{{array_ip}}"
+    verifycert: "{{verifycert}}"
+    user: "{{user}}"
+    password: "{{password}}"
+    vg_name: "{{ cluster_name }}"
+    description: "This volume group is for ansible" state: "present"
+  when: "'volumes' in group_names"
+
+
+- name: Create volume and assign to a volume group
+  dellemc_powerstore_volume:
+    array_ip: "{{array_ip}}"
+    verifycert: "{{verifycert}}"
+    user: "{{user}}"
+    password: "{{password}}"
+    vol_name: "{{ inventory_hostname }}"
+    vg_name: "{{ cluster_name }}"
+    size: "{{ size_gb }}"
+    cap_unit: "{{cap_unit}}"
+    state: 'present'
+  when: "'volumes' in group_names"
+
+- name: Map volume to a host with HLU
+  register: result
+  dellemc_powerstore_volume:
+    array_ip: "{{array_ip}}"
+    verifycert: "{{verifycert}}"
+    user: "{{user}}"
+    password: "{{password}}"
+    vol_name: "{{ inventory_hostname }}"
+    state: 'present'
+    mapping_state: 'mapped'
+    hostgroup: "{{ cluster_name }}"
+  when: "'volumes' in group_names"

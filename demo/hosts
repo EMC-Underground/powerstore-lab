@@ -1,6 +1,6 @@
 ---
 
-wincluster01:
+hosts:
   hosts:
     win2:
       initiator:
@@ -10,14 +10,21 @@ wincluster01:
       initiator:
         - 22:00:00:24:ff:31:e9:fc
         - 22:00:00:24:ff:31:e9:fd
-  volumes:
-    - volume_0001
-    - volume_0002
+
+volumes:
+  hosts:
+    volume_0001:
+      size_gb: 5
+    volume_0002:
+      size_gb: 1
+    volume_0003:
+      size_gb: 5
+
   vars:
-    powerstore_ip: 192.168.1.1
-    powerstore_username: admin
-    powerstore_password: mypasswordhere
-    powerstore_verifycert: false
+    array_ip: 192.168.1.30
+    user: admin
+    password: P@ssw0rd!
+    verifycert: False
     ansible_connection: local
-
-
+    cluster_name: wincluster01
+    cap_unit: GB
