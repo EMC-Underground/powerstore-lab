@@ -32,9 +32,7 @@
     user: "{{user}}"
     password: "{{password}}"
     vg_name: "{{ cluster_name }}"
-    description: "This volume group is for ansible" state: "present"
   when: "'volumes' in group_names"
-
 
 - name: Create volume and assign to a volume group
   dellemc_powerstore_volume:
