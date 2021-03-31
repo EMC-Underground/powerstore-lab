@@ -7,7 +7,7 @@
     user: "{{user}}"
     password: "{{password}}"
     vol_name: "{{ inventory_hostname }}"
-    state: "{{ clean_up }}"
+    state: present
     mapping_state: 'unmapped'
     hostgroup: "{{ cluster_name }}"
   when:
