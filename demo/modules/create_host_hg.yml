@@ -36,7 +36,21 @@
     size: "{{ size_gb }}"
     cap_unit: "{{cap_unit}}"
     state: "{{ clean_up }}"
-  when: "'volumes' in group_names"
+  when:
+    - "'volumes' in group_names"
+    - clean_up == 'present'
+
+- name: Create volume and assign to a volume group
+  dellemc_powerstore_volume:
+    array_ip: "{{array_ip}}"
+    verifycert: "{{verifycert}}"
+    user: "{{user}}"
+    password: "{{password}}"
+    vol_name: "{{ inventory_hostname }}"
+    state: "{{ clean_up }}"
+  when:
+    - "'volumes' in group_names"
+    - clean_up == 'absent'
 
 - name: Create host
   dellemc_powerstore_host:
