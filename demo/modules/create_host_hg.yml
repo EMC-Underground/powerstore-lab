@@ -10,7 +10,7 @@
     hosts: "{{ groups[group_names[0]] }}"
     host_state: 'absent-in-group'
   run_once: True
-  when:  and
+  when:
     - "'hosts' in group_names"
     - clean_up == 'absent'
 
