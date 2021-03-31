@@ -1,4 +1,19 @@
 ---
+- name: Clean up host group
+  dellemc_powerstore_hostgroup:
+    array_ip: "{{array_ip}}"
+    verifycert: "{{verifycert}}"
+    user: "{{user}}"
+    password: "{{password}}"
+    hostgroup_name: "{{ cluster_name }}"
+    state: present
+    hosts: "{{ groups[group_names[0]] }}"
+    host_state: 'absent-in-group'
+  run_once: True
+  when:  and
+    - "'hosts' in group_names"
+    - clean_up == 'absent'
+
 - name: Create host
   dellemc_powerstore_host:
     array_ip: "{{array_ip}}"
@@ -21,7 +36,7 @@
     hostgroup_name: "{{ cluster_name }}"
     hosts: "{{ groups[group_names[0]] }}"
     state: "{{ clean_up }}"
-    host_state: 'present-in-group'
+    host_state: '{{ clean_up }}-in-group'
   run_once: True
   when: "'hosts' in group_names"
 
