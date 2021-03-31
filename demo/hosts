@@ -28,3 +28,4 @@ all:
     ansible_connection: local
     cluster_name: wincluster01
     cap_unit: GB
+    clean_up: absent

@@ -8,7 +8,7 @@
     host_name: "{{ inventory_hostname }}"
     os_type: 'Windows'
     initiators: "{{ initiator }}"
-    state: 'present'
+    state: "{{ clean_up }}"
     initiator_state: 'present-in-host'
   when: "'hosts' in group_names"
 
@@ -20,7 +20,7 @@
     password: "{{password}}"
     hostgroup_name: "{{ cluster_name }}"
     hosts: "{{ groups[group_names[0]] }}"
-    state: 'present'
+    state: "{{ clean_up }}"
     host_state: 'present-in-group'
   run_once: True
   when: "'hosts' in group_names"
@@ -46,7 +46,7 @@
     vg_name: "{{ cluster_name }}"
     size: "{{ size_gb }}"
     cap_unit: "{{cap_unit}}"
-    state: 'present'
+    state: "{{ clean_up }}"
   when: "'volumes' in group_names"
 
 - name: Map volume to a host with HLU
@@ -57,7 +57,7 @@
     user: "{{user}}"
     password: "{{password}}"
     vol_name: "{{ inventory_hostname }}"
-    state: 'present'
+    state: "{{ clean_up }}"
     mapping_state: 'mapped'
     hostgroup: "{{ cluster_name }}"
   when: "'volumes' in group_names"
