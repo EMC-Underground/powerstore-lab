@@ -13,7 +13,7 @@
       verifycert: False
       user: "{{user}}"
       password: "{{password}}"
-      vol_name: volume_001
+      vol_name: 'volume_001'
       size: 1
       cap_unit: GB
       state: 'present'
