@@ -1,0 +1,15 @@
+---
+- name: Create host
+  dellemc_powerstore_host:
+    array_ip: "{{array_ip}}"
+    verifycert: False
+    user: "{{user}}"
+    password: "{{password}}"
+    host_name:
+      - host_001
+    os_type: 'Windows'
+    initiators:
+      -21:00:00:24:ff:31:e9:fc
+      -21:00:00:24:ff:31:e9:fd
+    state: 'present'
+    initiator_state: 'present-in-host'

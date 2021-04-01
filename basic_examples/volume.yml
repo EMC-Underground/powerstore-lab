@@ -1,0 +1,12 @@
+---
+- name: Create stand-alone volume
+  dellemc_powerstore_volume:
+    array_ip: "{{array_ip}}"
+    verifycert: False
+    user: "{{user}}"
+    password: "{{password}}"
+    vol_name:
+      - volume_001
+    size: 1
+    cap_unit: GB
+    state: 'present'

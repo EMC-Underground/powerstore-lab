@@ -1,0 +1,13 @@
+---
+- name: Create host group with hosts using host name
+  dellemc_powerstore_hostgroup:
+    array_ip: "{{array_ip}}"
+    verifycert: False
+    user: "{{user}}"
+    password: "{{password}}"
+    hostgroup_name: host_group_001
+    hosts:
+      - host_001
+      - host_002
+    state: 'present'
+    host_state: 'present-in-group'
