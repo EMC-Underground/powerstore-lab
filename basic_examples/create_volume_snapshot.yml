@@ -21,13 +21,13 @@
 
   - name: Get list of snapshot rules
     dellemc_powerstore_gatherfacts:
-    array_ip: "{{array_ip}}"
-    verifycert: False
-    user: "{{user}}"
-    password: "{{password}}"
-    gather_subset:
-      - snapshot_rule
-  register: snapshot_rule
+      array_ip: "{{array_ip}}"
+      verifycert: False
+      user: "{{user}}"
+      password: "{{password}}"
+      gather_subset:
+        - snapshot_rule
+    register: snapshot_rule
 
   - name: Display list of of snapshot rules
     debug:
