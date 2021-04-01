@@ -30,6 +30,6 @@
       state: present
     register: snapshot_rule
 
-  - name: Display list of of snapshot rules
+  - name: Display list of of volume snapshots
     debug:
       var: snapshot_rule
