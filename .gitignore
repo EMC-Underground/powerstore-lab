@@ -1,5 +1,4 @@
 demo/change_request_vars.yml
 dellemc_ansible_provisioning.log
 basic_examples/recordings/*.gif
-basic_examples/.DS_Store
 
