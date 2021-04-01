@@ -21,7 +21,7 @@
   - name: Get list of volumes
     dellemc_powerstore_gatherfacts:
       array_ip: "{{array_ip}}"
-      verifycert: "{{verifycert}}"
+      verifycert: False
       user: "{{user}}"
       password: "{{password}}"
       gather_subset:
