@@ -26,6 +26,6 @@
         - vg
     register: volume_group
 
-  - name: Display list of volumes
+  - name: Display list of volumes groups
     debug:
       var: volume_group

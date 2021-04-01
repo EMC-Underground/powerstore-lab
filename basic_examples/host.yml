@@ -30,6 +30,6 @@
         - host
     register: hosts
 
-  - name: Display list of volumes
+  - name: Display list of hosts
     debug:
       var: hosts

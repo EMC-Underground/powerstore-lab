@@ -27,6 +27,6 @@
         - hg
     register: host_group
 
-  - name: Display list of volumes
+  - name: Display list of host groups
     debug:
       var: host_group

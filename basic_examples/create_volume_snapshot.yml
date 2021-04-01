@@ -29,6 +29,6 @@
       - snapshot_rule
   register: snapshot_rule
 
-  - name: Display list of volumes
+  - name: Display list of of snapshot rules
     debug:
       var: snapshot_rule
