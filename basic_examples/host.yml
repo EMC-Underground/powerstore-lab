@@ -15,8 +15,8 @@
       host_name: host_001
       os_type: 'Windows'
       initiators:
-        -21:00:00:24:ff:31:e9:fc
-        -21:00:00:24:ff:31:e9:fd
+        - 21:00:00:24:ff:31:e9:fc
+        - 21:00:00:24:ff:31:e9:fd
       state: 'present'
       initiator_state: 'present-in-host'
 
