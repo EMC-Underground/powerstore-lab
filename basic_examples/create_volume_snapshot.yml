@@ -27,6 +27,7 @@
       password: "{{password}}"
       name: snap_volume_001
       state: "present"
+    register: snapshot_rule
 
 
   - name: Display list of of snapshot rules
