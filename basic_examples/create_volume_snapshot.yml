@@ -19,16 +19,16 @@
       retention_unit: days
       state: present
 
-  - name: Get details of an existing snapshot rule by name
-    dellemc_powerstore_snapshotrule:
+  - name: Get details of a volume snapshot
+    dellemc_powerstore_snapshot:
       array_ip: "{{array_ip}}"
       verifycert: False
       user: "{{user}}"
       password: "{{password}}"
-      name: snap_volume_001
-      state: "present"
+      snapshot_name: snap_volume_001
+      volume: volume_001
+      state: present
     register: snapshot_rule
-
 
   - name: Display list of of snapshot rules
     debug:
