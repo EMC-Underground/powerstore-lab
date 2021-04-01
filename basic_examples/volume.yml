@@ -17,3 +17,12 @@
       size: 1
       cap_unit: GB
       state: 'present'
+
+  - name: Get list of volumes
+    dellemc_powerstore_gatherfacts:
+      array_ip: "{{array_ip}}"
+      verifycert: "{{verifycert}}"
+      user: "{{user}}"
+      password: "{{password}}"
+      gather_subset:
+        - vol
