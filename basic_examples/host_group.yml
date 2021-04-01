@@ -13,6 +13,8 @@
       user: "{{user}}"
       password: "{{password}}"
       hostgroup_name: host_group_001
+      hosts: host_001
+      host_state: 'present-in-group'
       state: 'present'
 
   - name: Get list of host groups
