@@ -1,13 +1,19 @@
 ---
-- name: Create a volume snapshot on PowerStore
-  dellemc_powerstore_snapshot:
-    array_ip: "{{array_ip}}"
-    verifycert: False
-    user: "{{user}}"
-    password: "{{password}}"
-    snapshot_name: snap_volume_001
-    volume: volume_001
-    description: "This is a snapshot created by an ansible playbook"
-    desired_retention: 7
-    retention_unit: days
-    state: present
+- hosts: localhost
+  gather_facts: False
+  collections:
+    - dellemc.powerstore
+
+  tasks:
+  - name: Create a volume snapshot on PowerStore
+    dellemc_powerstore_snapshot:
+      array_ip: "{{array_ip}}"
+      verifycert: False
+      user: "{{user}}"
+      password: "{{password}}"
+      snapshot_name: snap_volume_001
+      volume: volume_001
+      description: "This is a snapshot created by an ansible playbook"
+      desired_retention: 7
+      retention_unit: days
+      state: present

@@ -1,10 +1,16 @@
 ---
-- name: Create volume group without protection policy
-  dellemc_powerstore_volumegroup:
-    array_ip: "{{array_ip}}"
-    verifycert: False
-    user: "{{user}}"
-    password: "{{password}}"
-    vg_name: volume_group_001
-    description: "This volume group is for ansible"
-    state: "present"
+- hosts: localhost
+  gather_facts: False
+  collections:
+    - dellemc.powerstore
+
+  tasks:
+  - name: Create volume group without protection policy
+    dellemc_powerstore_volumegroup:
+      array_ip: "{{array_ip}}"
+      verifycert: False
+      user: "{{user}}"
+      password: "{{password}}"
+      vg_name: volume_group_001
+      description: "This volume group is for ansible"
+      state: "present"
