@@ -18,3 +18,17 @@
       desired_retention: 7
       retention_unit: days
       state: present
+
+  - name: Get list of snapshot rules
+    dellemc_powerstore_gatherfacts:
+    array_ip: "{{array_ip}}"
+    verifycert: False
+    user: "{{user}}"
+    password: "{{password}}"
+    gather_subset:
+      - snapshot_rule
+  register: snapshot_rule
+
+  - name: Display list of volumes
+    debug:
+      var: snapshot_rule

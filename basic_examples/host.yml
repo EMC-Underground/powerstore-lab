@@ -20,3 +20,17 @@
         -21:00:00:24:ff:31:e9:fd
       state: 'present'
       initiator_state: 'present-in-host'
+
+  - name: Get list of host
+    dellemc_powerstore_gatherfacts:
+      array_ip: "{{array_ip}}"
+      verifycert: False
+      user: "{{user}}"
+      password: "{{password}}"
+      gather_subset:
+        - host
+    register: hosts
+
+  - name: Display list of volumes
+    debug:
+      var: hosts

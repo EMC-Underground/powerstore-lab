@@ -15,3 +15,17 @@
       vg_name: volume_group_001
       description: "This volume group is for ansible"
       state: "present"
+
+  - name: Get list of volume groups
+      dellemc_powerstore_gatherfacts:
+      array_ip: "{{array_ip}}"
+      verifycert: False
+      user: "{{user}}"
+      password: "{{password}}"
+      gather_subset:
+        - vg
+    register: volume_group
+
+  - name: Display list of volumes
+    debug:
+      var: volume_group

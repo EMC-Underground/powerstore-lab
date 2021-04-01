@@ -18,3 +18,17 @@
         - host_002
       state: 'present'
       host_state: 'present-in-group'
+
+  - name: Get list of host groups
+    dellemc_powerstore_gatherfacts:
+      array_ip: "{{array_ip}}"
+      verifycert: False
+      user: "{{user}}"
+      password: "{{password}}"
+      gather_subset:
+        - hg
+    register: host_group
+
+  - name: Display list of volumes
+    debug:
+      var: host_group
