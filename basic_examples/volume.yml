@@ -26,3 +26,8 @@
       password: "{{password}}"
       gather_subset:
         - vol
+    register: volumes
+
+  - name: Display list of volumes
+    debug:
+      var: volumes
