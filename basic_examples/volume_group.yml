@@ -17,7 +17,7 @@
       state: "present"
 
   - name: Get list of volume groups
-      dellemc_powerstore_gatherfacts:
+    dellemc_powerstore_gatherfacts:
       array_ip: "{{array_ip}}"
       verifycert: False
       user: "{{user}}"
