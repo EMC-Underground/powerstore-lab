@@ -1,0 +1,12 @@
+{"version": 2, "width": 106, "height": 37, "timestamp": 1617312693, "env": {"SHELL": "/bin/zsh", "TERM": "xterm"}}
+[0.16976, "o", "\u001b[1m\u001b[7m#\u001b[27m\u001b[1m\u001b[0m                                                                                                         \r \r\u001b]2;root@linux1:~/Documents/powerstore-lab/basic_examples\u0007\u001b]1;..asic_examples\u0007"]
+[0.189142, "o", "\r\u001b[0m\u001b[27m\u001b[24m\u001b[J\u001b[01;32m➜  \u001b[36mbasic_examples\u001b[00m \u001b[01;34mgit:(\u001b[31mmain\u001b[34m) \u001b[33m✗\u001b[00m \u001b[K\u001b[?1h\u001b="]
+[1.735586, "o", "asciinema rec recordings/cli_create_volume"]
+[2.379333, "o", "\u001b[42Dclear                                     \u001b[37D"]
+[3.219836, "o", "\b\b\b\b\bpstcli -header volume create -name test_volume_001 -size 819200000"]
+[4.636906, "o", "\u001b[?1l\u001b>\r\r\n\u001b]2;pstcli -header volume create -name test_volume_001 -size 819200000\u0007\u001b]1;pstcli\u0007"]
+[5.104739, "o", "PowerStore system: \u001b[1;37m192.168.1.30\u001b[0m\r\nTimezone:          \u001b[1;37mBST (UTC+01:00)\u001b[0m\r\nUser:              \u001b[1;37madmin\u001b[0m\r\n\r\n"]
+[5.641229, "o", "Created\r\n \u001b[1;32m#\u001b[0m  |                  \u001b[1;32mid\u001b[0m                 \r\n----+--------------------------------------\r\n  \u001b[1;37m1\u001b[0m | \u001b[1;37m0c2df7ec-4fe5-46c1-9944-d029d55f2a05\u001b[0m\r\n"]
+[5.655409, "o", "\u001b[1m\u001b[7m#\u001b[27m\u001b[1m\u001b[0m                                                                                                         \r \r\u001b]2;root@linux1:~/Documents/powerstore-lab/basic_examples\u0007\u001b]1;..asic_examples\u0007"]
+[5.679207, "o", "\r\u001b[0m\u001b[27m\u001b[24m\u001b[J\u001b[01;32m➜  \u001b[36mbasic_examples\u001b[00m \u001b[01;34mgit:(\u001b[31mmain\u001b[34m) \u001b[33m✗\u001b[00m \u001b[K\u001b[?1h\u001b="]
+[19.699605, "o", "\r\r\n"]
