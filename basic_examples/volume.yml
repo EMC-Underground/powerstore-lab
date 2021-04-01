@@ -16,4 +16,4 @@
         - volume_001
       size: 1
       cap_unit: GB
-      state: 'present'
+      state: 'absent'
