@@ -2,7 +2,7 @@
 - hosts: all
   gather_facts: False
   vars:
-    - ansible_connection: local
+    ansible_connection: local
   collections:
     - dellemc.powerstore
 
