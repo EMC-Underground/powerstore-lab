@@ -15,7 +15,7 @@
       snapshot_name: snap_volume_001
       volume: volume_001
       description: "This is a snapshot created by an ansible playbook"
-      desired_retention: '7'
+      desired_retention: 7
       retention_unit: days
       state: present
 
