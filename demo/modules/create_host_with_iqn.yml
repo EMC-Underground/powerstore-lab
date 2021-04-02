@@ -84,7 +84,8 @@
     - clean_up == 'present'
 
 - name: Create host group with hosts using host name
-  dellemc_powerstore_hostgroup:
+  local_action:
+    module: dellemc_powerstore_hostgroup
     array_ip: "{{array_ip}}"
     verifycert: "{{verifycert}}"
     user: "{{user}}"
@@ -99,7 +100,8 @@
 
 - name: Map volume to a host with HLU
   register: result
-  dellemc_powerstore_volume:
+  local_action:
+    module: dellemc_powerstore_volume
     array_ip: "{{array_ip}}"
     verifycert: "{{verifycert}}"
     user: "{{user}}"
