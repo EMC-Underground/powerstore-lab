@@ -9,6 +9,11 @@
     initiator: iscsi.stdout
   when: "'hosts' in group_names"
 
+- name: Print out the IQNs
+  debug:
+    var: initiator
+  when: "'hosts' in group_names"
+
 - name: Unmap volume to a host with HLU
   register: result
   dellemc_powerstore_volume:
