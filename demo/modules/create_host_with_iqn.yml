@@ -6,7 +6,7 @@
 
 - name: Display list of volumes
   set_fact:
-    initiator: iscsi.stdout
+    initiator: "{{ iscsi.stdout }}"
   when: "'hosts' in group_names"
 
 - name: Print out the IQNs
