@@ -31,7 +31,7 @@
 
 - name: Create volume group without protection policy
   local_action:
-    module: dellemc_powerstore_volumegroup:
+    module: dellemc_powerstore_volumegroup
     array_ip: "{{array_ip}}"
     verifycert: "{{verifycert}}"
     user: "{{user}}"
