@@ -1,14 +1,8 @@
 ---
 hosts:
   hosts:
-    win2:
-      initiator:
-        - 21:00:00:24:ff:31:e9:fc
-        - 21:00:00:24:ff:31:e9:fd
-    win3:
-      initiator:
-        - 22:00:00:24:ff:31:e9:fc
-        - 22:00:00:24:ff:31:e9:fd
+    linux2:
+    linux3:
 
 volumes:
   hosts:
@@ -18,6 +12,8 @@ volumes:
       size_gb: 1
     volume_0003:
       size_gb: 5
+  vars:
+    ansible_connection: local
 
 all:
   vars:
@@ -25,6 +21,5 @@ all:
     user: admin
     password: P@ssw0rd!
     verifycert: False
-    ansible_connection: local
     cluster_name: wincluster01
     cap_unit: GB
