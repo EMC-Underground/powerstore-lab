@@ -31,7 +31,7 @@
     vg_name: "{{ cluster_name }}"
     state: "{{ clean_up }}"
   run_once: True
-  when: "'hosts' in group_names"
+  when: "'volumes' in group_names"
 
 - name: Create volume and assign to a volume group
   dellemc_powerstore_volume:
