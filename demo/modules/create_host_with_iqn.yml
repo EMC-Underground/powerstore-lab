@@ -1,0 +1,106 @@
+---
+- name: Perform a discovery on and show available target nodes
+  shell: cat /etc/iscsi/initiatorname.iscsi | awk -F"=" '{print $2}'
+  register: iscsi
+
+- name: Display list of volumes
+  set_fact:
+    initiator: iscsi.stdout
+
+- name: Unmap volume to a host with HLU
+  register: result
+  dellemc_powerstore_volume:
+    array_ip: "{{array_ip}}"
+    verifycert: "{{verifycert}}"
+    user: "{{user}}"
+    password: "{{password}}"
+    vol_name: "{{ inventory_hostname }}"
+    state: present
+    mapping_state: 'unmapped'
+    hostgroup: "{{ cluster_name }}"
+  when:
+    - "'volumes' in group_names"
+    - clean_up == 'absent'
+
+- name: Create volume group without protection policy
+  dellemc_powerstore_volumegroup:
+    array_ip: "{{array_ip}}"
+    verifycert: "{{verifycert}}"
+    user: "{{user}}"
+    password: "{{password}}"
+    vg_name: "{{ cluster_name }}"
+    state: "{{ clean_up }}"
+  run_once: True
+  when: "'hosts' in group_names"
+
+- name: Create volume and assign to a volume group
+  dellemc_powerstore_volume:
+    array_ip: "{{array_ip}}"
+    verifycert: "{{verifycert}}"
+    user: "{{user}}"
+    password: "{{password}}"
+    vol_name: "{{ inventory_hostname }}"
+    vg_name: "{{ cluster_name }}"
+    size: "{{ size_gb }}"
+    cap_unit: "{{cap_unit}}"
+    state: "{{ clean_up }}"
+  when:
+    - "'volumes' in group_names"
+    - clean_up == 'present'
+
+- name: Create volume and assign to a volume group
+  dellemc_powerstore_volume:
+    array_ip: "{{array_ip}}"
+    verifycert: "{{verifycert}}"
+    user: "{{user}}"
+    password: "{{password}}"
+    vol_name: "{{ inventory_hostname }}"
+    state: "{{ clean_up }}"
+  when:
+    - "'volumes' in group_names"
+    - clean_up == 'absent'
+
+- name: Create host
+  dellemc_powerstore_host:
+    array_ip: "{{array_ip}}"
+    verifycert: "{{verifycert}}"
+    user: "{{user}}"
+    password: "{{password}}"
+    host_name: "{{ inventory_hostname }}"
+    os_type: 'Windows'
+    initiators: "{{ initiator }}"
+    state: "{{ clean_up }}"
+    initiator_state: 'present-in-host'
+  when:
+    - "'hosts' in group_names"
+    - clean_up == 'present'
+
+- name: Create host group with hosts using host name
+  dellemc_powerstore_hostgroup:
+    array_ip: "{{array_ip}}"
+    verifycert: "{{verifycert}}"
+    user: "{{user}}"
+    password: "{{password}}"
+    hostgroup_name: "{{ cluster_name }}"
+    hosts: "{{ groups[group_names[0]] }}"
+    state: "{{ clean_up }}"
+    host_state: '{{ clean_up }}-in-group'
+  run_once: True
+  when:
+    - "'hosts' in group_names"
+
+- name: Map volume to a host with HLU
+  register: result
+  dellemc_powerstore_volume:
+    array_ip: "{{array_ip}}"
+    verifycert: "{{verifycert}}"
+    user: "{{user}}"
+    password: "{{password}}"
+    vol_name: "{{ inventory_hostname }}"
+    state: "{{ clean_up }}"
+    mapping_state: 'mapped'
+    hostgroup: "{{ cluster_name }}"
+  when:
+    - "'volumes' in group_names"
+    - clean_up == 'present'
+
