@@ -118,8 +118,11 @@
   shell: /sbin/iscsiadm -m discovery -t sendtargets -p "{{ array_storage_net }}"
   when: "'hosts' in group_names"
 
-- name: Perform a iscsi scan for new volumes
-  shell: service iscsi start
+- name: Start the iSCSI service
+  service:
+    name: iscsi
+    state: started
+    enabled: yes
   when: "'hosts' in group_names"
 
 - name: Perform a iscsi scan for new volumes
