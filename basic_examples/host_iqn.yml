@@ -1,0 +1,43 @@
+---
+- hosts: all
+  connection: local
+  gather_facts: False
+  collections:
+    - dellemc.powerstore
+
+  tasks:
+  - name: Perform a discovery on and show available target nodes
+    shell: cat /etc/iscsi/initiatorname.iscsi | awk -F"=" '{print $2}'
+    register: iscsi
+
+  - name: Display list of volumes
+    debug:
+      var: iscsi.stdout
+
+  - name: Create host
+    dellemc_powerstore_host:
+      array_ip: "{{array_ip}}"
+      verifycert: False
+      user: "{{user}}"
+      password: "{{password}}"
+      host_name: host_001
+      os_type: 'Windows'
+      initiators:
+        - 21:00:00:24:ff:31:e9:fc
+        - 21:00:00:24:ff:31:e9:fd
+      state: 'present'
+      initiator_state: 'present-in-host'
+
+  - name: Get list of host
+    dellemc_powerstore_gatherfacts:
+      array_ip: "{{array_ip}}"
+      verifycert: False
+      user: "{{user}}"
+      password: "{{password}}"
+      gather_subset:
+        - host
+    register: hosts
+
+  - name: Display list of hosts
+    debug:
+      var: hosts
