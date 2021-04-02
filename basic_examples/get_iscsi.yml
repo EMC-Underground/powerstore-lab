@@ -1,5 +1,5 @@
 ---
-- hosts: linux2
+- hosts: all
   connection: local
   gather_facts: True
   collections:
