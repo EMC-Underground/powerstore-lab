@@ -7,7 +7,7 @@
 
   tasks:
   - name: Perform a discovery on and show available target nodes
-      shell: cat /etc/iscsi/initiatorname.iscsi | awk -F"=" '{print $2}'
+    shell: cat /etc/iscsi/initiatorname.iscsi | awk -F"=" '{print $2}'
     register: iscsi
 
   - name: Display list of volumes
