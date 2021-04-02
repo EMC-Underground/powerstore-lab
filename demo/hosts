@@ -18,8 +18,9 @@ volumes:
 all:
   vars:
     array_ip: 192.168.1.30
+    array_storage_net: 192.168.2.30
     user: admin
     password: P@ssw0rd!
     verifycert: False
-    cluster_name: wincluster01
+    cluster_name: linuxcluster01
     cap_unit: GB

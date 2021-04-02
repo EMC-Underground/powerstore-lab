@@ -114,3 +114,14 @@
     - "'volumes' in group_names"
     - clean_up == 'present'
 
+- name: Perform a iscsi scan for new volumes
+  shell: /sbin/iscsiadm -m discovery -t sendtargets -p "{{ array_storage_net }}"
+  when: "'hosts' in group_names"
+
+- name: Perform a iscsi scan for new volumes
+  shell: service iscsi start
+  when: "'hosts' in group_names"
+
+- name: Perform a iscsi scan for new volumes
+  shell: multipath -ll
+  when: "'hosts' in group_names"
