@@ -30,7 +30,8 @@
     - clean_up == 'absent'
 
 - name: Create volume group without protection policy
-  dellemc_powerstore_volumegroup:
+  local_action:
+    module: dellemc_powerstore_volumegroup:
     array_ip: "{{array_ip}}"
     verifycert: "{{verifycert}}"
     user: "{{user}}"
@@ -38,7 +39,6 @@
     vg_name: "{{ cluster_name }}"
     state: "{{ clean_up }}"
   run_once: True
-  when: "'volumes' in group_names"
 
 - name: Create volume and assign to a volume group
   dellemc_powerstore_volume:
