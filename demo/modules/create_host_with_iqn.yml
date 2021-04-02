@@ -4,7 +4,7 @@
   register: iscsi
   when: "'hosts' in group_names"
 
-- name: Display list of volumes
+- name: Set the IQN as a fact
   set_fact:
     initiator: "{{ iscsi.stdout }}"
   when: "'hosts' in group_names"
@@ -38,7 +38,6 @@
     vg_name: "{{ cluster_name }}"
     state: "{{ clean_up }}"
   run_once: True
-  when: "'volumes' in group_names"
 
 - name: Create volume and assign to a volume group
   dellemc_powerstore_volume:
