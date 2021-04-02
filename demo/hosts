@@ -1,7 +1,7 @@
 ---
 hosts:
   hosts:
-    linux2:
+    linux4:
     linux3:
 
 volumes:
