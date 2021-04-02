@@ -17,6 +17,7 @@
       verifycert: "{{verifycert}}"
       gather_subset:
         - vol
+    run_once: True
     register: subset_result
 
   - name: Print out the details of the array
@@ -32,6 +33,7 @@
       password: "{{password}}"
       gather_subset:
         - vol
+    run_once: True
     register: volume_result
 
   - name: Print out the details of the volumes

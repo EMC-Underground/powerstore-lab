@@ -125,6 +125,11 @@
     enabled: yes
   when: "'hosts' in group_names"
 
-- name: Perform a iscsi scan for new volumes
+- name: Run multipath -ll to display volumes
   shell: multipath -ll
   when: "'hosts' in group_names"
+  register: multipath
+
+- name: Display the output of the multipath command
+  debug:
+    var: multipath
