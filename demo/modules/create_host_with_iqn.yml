@@ -68,7 +68,8 @@
     - clean_up == 'absent'
 
 - name: Create host
-  dellemc_powerstore_host:
+  local_action:
+    module: dellemc_powerstore_host
     array_ip: "{{array_ip}}"
     verifycert: "{{verifycert}}"
     user: "{{user}}"
