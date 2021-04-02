@@ -9,7 +9,8 @@
     include_tasks: ./modules/create_host_with_iqn.yml
 
   - name: Get the details of the array
-    dellemc_powerstore_gatherfacts:
+    local_action:
+      module: dellemc_powerstore_gatherfacts
       array_ip: "{{array_ip}}"
       user: "{{user}}"
       password: "{{password}}"
@@ -23,7 +24,8 @@
       var: subset_result
 
   - name: Get list of volumes
-    dellemc_powerstore_gatherfacts:
+    local_action:
+      module: dellemc_powerstore_gatherfacts
       array_ip: "{{array_ip}}"
       verifycert: "{{verifycert}}"
       user: "{{user}}"
