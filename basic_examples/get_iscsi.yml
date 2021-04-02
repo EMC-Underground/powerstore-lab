@@ -1,0 +1,19 @@
+---
+- hosts: linux2
+  connection: local
+  gather_facts: True
+  collections:
+    - community.general.open_iscsi
+
+  tasks:
+
+  - name: Perform a discovery on sun.com and show available target nodes
+  community.general.open_iscsi:
+    show_nodes: yes
+    discover: yes
+    portal: linux2
+  register: iscsi
+
+  - name: Display list of volumes
+    debug:
+      var: iscsi
