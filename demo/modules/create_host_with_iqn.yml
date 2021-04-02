@@ -2,10 +2,12 @@
 - name: Perform a discovery on and show available target nodes
   shell: cat /etc/iscsi/initiatorname.iscsi | awk -F"=" '{print $2}'
   register: iscsi
+  when: "'hosts' in group_names"
 
 - name: Display list of volumes
   set_fact:
     initiator: iscsi.stdout
+  when: "'hosts' in group_names"
 
 - name: Unmap volume to a host with HLU
   register: result
